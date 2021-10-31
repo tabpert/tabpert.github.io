@@ -21,17 +21,49 @@
       <a href="https://www.youtube.com/watch?v=sbCH_zD53Kg" class="btn"
         >Instructions</a
       >
+      <a
+        href="https://www.youtube.com/watch?v=YhfU1BON8EI&ab_channel=VivekGupta"
+        class="btn"
+        >Video</a
+      >
+      <a
+        href="https://docs.google.com/presentation/d/16wI6gWRmSry9N5caKOOH2AvJYy_6ow1XmGgWexKLQDI/edit?usp=sharing"
+        class="btn"
+        >PPT</a
+      ><br />
     </section>
     <section class="main-content">
-      <!-- <h1>An Effective Platform for Tabular Perturbation</h1>
-        
-      <iframe
-        width="100%"
-        height="100%"
-        src="https://docs.google.com/document/d/e/2PACX-1vQjSe7nXpx1AALH9qi3Hgvv4NjfKNnB9FHM-smGSndeDrMOWg9Rk-CNbjlpwsCHXs7pG60ziMFmd60i/pub?embedded=true"
-      ></iframe> -->
+      <h1>An Effective Platform for Tabular Perturbation</h1>
 
-      <h1>TABPERT ANNOTATION INSTRUCTIONS</h1>
+      <h2>
+        <a
+          id="user-content-header-2"
+          class="anchor"
+          href="#header-2"
+          aria-hidden="true"
+          ><span class="octicon octicon-link"></span></a
+        >About
+      </h2>
+      <p style="text-align: justify">
+        To truly grasp reasoning ability, a Natural Language Inference model
+        should be evaluated on counterfactual data. TabPert facilitates this by
+        assisting in the generation of such counterfactual data for assessing
+        model tabular rea- soning issues. TabPert allows a user to update a
+        table, change its associated hypotheses, change their labels, and
+        highlight rows that are important for hypothesis classification. TabPert
+        also captures information about the techniques used to automatically
+        produce the table, as well as the strategies employed to generate the
+        challenging hypotheses. These counterfactual tables and hypotheses, as
+        well as the metadata, can then be used to explore an existing model’s
+        shortcomings methodically and quantitatively.
+      </p>
+      <p style="text-align: justify">
+        tldr: TabPert is a tool to augment existing tabular datasets to
+        effectively and efficiently create counterfactual datasets.
+      </p>
+      <p></p>
+
+      <h2>Annotation Instructions</h2>
 
       <p>
         This is the instructions document for using TabPert. You should watch
@@ -115,6 +147,51 @@
         the hypothesis label.
       </li>
       <p><img src="figures/Image_8.png" /></p>
+
+      <h2>
+        <a
+          id="user-content-header-2"
+          class="anchor"
+          href="#header-2"
+          aria-hidden="true"
+          ><span class="octicon octicon-link"></span></a
+        >Citation
+      </h2>
+      <p style="text-align: justify">
+        Please cite our paper as below if you use TabPert.
+      </p>
+      <pre><code>@inproceedings{jain2021tabpert,
+        title={TabPert: An Effective Platform for Tabular Perturbation}, 
+        author={Nupur Jain and Vivek Gupta and Anshul Rai and Gaurav Kumar},
+    <!-- booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics", -->
+    month = nov,
+    year = "2021",
+    address = "Online",
+    <!-- publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.acl-main.210",
+    pages = "2309--2324",
+    abstract = "In this paper, we observe that semi-structured tabulated text is ubiquitous; understanding them requires not only comprehending the meaning of text fragments, but also implicit relationships between them. We argue that such data can prove as a testing ground for understanding how we reason about information. To study this, we introduce a new dataset called INFOTABS, comprising of human-written textual hypotheses based on premises that are tables extracted from Wikipedia info-boxes. Our analysis shows that the semi-structured, multi-domain and heterogeneous nature of the premises admits complex, multi-faceted reasoning. Experiments reveal that, while human annotators agree on the relationships between a table-hypothesis pair, several standard modeling strategies are unsuccessful at the task, suggesting that reasoning about tables can pose a difficult modeling challenge.", -->
+}</code></pre>
+      <h2>
+        <a
+          id="user-content-header-2"
+          class="anchor"
+          href="#header-2"
+          aria-hidden="true"
+          ><span class="octicon octicon-link"></span></a
+        >Acknowledgement
+      </h2>
+      <p style="text-align: justify">
+        Authors appreciate the
+        <a href="https://svivek.com/">Utah NLP group</a> members' valuable
+        suggestions at various phases of the project, as well as the reviewers'
+        helpful remarks. We also acknowledge NSF grants #1801446 (SATC) and
+        #1822877 (Cyberlearning), as well as a kind donation from Verisk Inc. We
+        also like to thank
+        <a href="https://svivek.com/">Alokit Innovations</a> for providing a
+        mentoring We also like to thank Alokit Innovations for providing a
+        mentoring platform.
+      </p>
 
       <footer class="site-footer">
         <span class="site-footer-credits"
