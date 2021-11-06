@@ -24,7 +24,7 @@
         >Annotation Instructions</a
       >
       <a href="https://www.youtube.com/watch?v=sbCH_zD53Kg" class="btn"
-        >Demonstration (Video)</a
+        >Demonstration (video)</a
       >
       <a
         href="https://vgupta123.github.io/docs/tabpert_ppt.pdf"
@@ -32,7 +32,7 @@
         >Slides</a
       ><br />
       <a href="youtube.com/watch?v=zjfRk8--jEY" class="btn"
-        >Presentation (Video)</a
+        >Presentation (video)</a
       >
     </section>
     <section id="Home" class="main-content tab" style="display: block">
@@ -61,20 +61,46 @@
         shortcomings methodically and quantitatively.
       </p>
       <p style="text-align: justify">
-        tldr: TabPert is a tool to augment existing tabular datasets to
+        <b>tl;dr</b>: TabPert is a tool to augment existing tabular datasets to
         effectively and efficiently create counterfactual datasets.
       </p>
       <p></p>
+      
+       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Right Inference ≠ Right Reasoning </h2>
+       Existing NLI models tend to exploit annotation artefacts, pre-trained knowledge, and hypothesis biases in data to answer a premise. Therefore, to test their performance effectively, we must test them on <b>adversarial data</b>, on which their performance significantly reduces. However, perturbing existing tabular datasets to create counterfactual data is difficult and inefficient without specialised tools. This is where TabPert comes in!
+       
+       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Utility of TabPert</h2>
+       TabPert is built specifically to allow annotators to effectively and efficiently perturb tabular data and hypotheses. 
+       <ul>
+       	<li>TabPert <b>streamlines</b> the process of creating adversarial data</li>
+       	<li>TabPert logs data (called <b>metadata</b>) about the kinds of changes done to the dataset at each step of perturbation. This data can then be used to <b>analyse</b> models and <b>pinpoint their weaknesses</b></li>
+       	<li>TabPert <b>automates</b> part of the perturbation process, making it easier for annotators to work while also reducing annotator bias</li>
+       	<li>TabPert can be <b>customised</b> to any tabular perturbation task</li>
+       </ul>
+       
+       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Table</h2>
+			<p style="text-align: justify; display:inline;">For a case study of TabPert, we use the <a href="https://infotabs.github.io">InfoTabS dataset</a>. Below is an inference example from InfoTabS. On the right is a premise and on the left are some of its hypotheses. Here, colors <p style='color:green;display:inline;'>'green'</p>, <p style='color:darkgray;display:inline;'>'gray'</p>, and <p style='color:red;display:inline;'>'red'</p> represent true (i.e., entailment), maybe true (i.e., neutral) and false (i.e., contradiction) statements, respectively.</p>
+			<p style="margin-left:10%; margin-right:10%;"><img src="figures/example.jpeg" style="max-width:95%;"></p>
+       
+       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it Work?</h2>
+       <p>Annotation proceeds in two stages: the automatic stage followed by the manual stage. Metadata is collected in both stages: metadata for changes to the table is logged automatically, while metadata for hypothesis changes is input by the annotator.</p>
+       <p>In the <b>automatic perturbation stage</b>, values are shuffled around the tables in the dataset. Values of one 'type' can be replaced by other values of the same type. These types must be specified beforehand. TabPert automatically logs the 'source' of each shuffled value, and this data  can be used to find shortcomings in the model like <b>overfitting</b>.</p>
+       <p>In the <b>manual perturbation stage</b>, annotators correct any logical inconsistencies introduced in the table during the automatic stage, and perturb hypotheses. TabPert automatically logs the kinds of changes done to the table. For the hypotheses, the annotator must manually specify the <b>relevant rows</b> (sections in the table necessary to answer a hypothesis) as well as the <b>strategy</b> used to change each hypothesis. For more information about this stage, click <a onclick="switchTab(event, 'Instructions')" class="tablinks">here</a>.</p>
+       
+       
+       
+      
+      
 
       
       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>People</h2>
-			<p style="text-align: justify;"> TabPert has been prepared by the following people at <a href="https://iitk.ac.in/">IIT Kanpur</a> and <a href="https://www.cs.utah.edu/"> School of Computing</a> of <a href="https://www.cs.utah.edu/">University of Utah</a></p>
+			<p style="text-align: justify;"> TabPert has been prepared by the following people at <a href="https://iitk.ac.in/">IIT Kanpur</a> and <a href="https://www.cs.utah.edu/"> School of Computing</a> of <a href="https://www.cs.utah.edu/">University of Utah</a>:</p>
 			<figure>
 				<img src="figures/nupur.jpg" style="width:25%;">
 				<img src="figures/vivekg.jpg" style="width:25%;">
 				<img src="figures/pegah.png" style="width:21%;">
-				<img src="figures/viveks.jpg" style="width:23%;">
-				<figcaption>From left to right, <a href="https://sites.google.com/view/maitreymehta/home">Nupur Jain</a>, <a href="https://vgupta123.github.io">Vivek Gupta</a>,  <a href="https://sites.google.com/view/pnokhiz/home">Anshul Rai</a> and <a href="https://svivek.com/">Gaurav Kumar</a>. </figcaption>
+				<img src="figures/gaurav.jpg" style="width:25%;">
+				<figcaption>From left to right, <a href="https://www.linkedin.com/in/nupur-jain-060b85189/">Nupur Jain</a>, <a href="https://vgupta123.github.io">Vivek Gupta</a>,  <a href="https://sites.google.com/view/pnokhiz/home">Anshul Rai</a> and <a href="http://www.linkedin.com/in/gaurav-kumar-1450971a8">Gaurav Kumar</a>. </figcaption>
 			</figure>
 
       <h2>
@@ -130,15 +156,15 @@
     <h1>Annotation Instructions</h1>
 
       <p>
-        This is the instructions document for using TabPert. You should watch
-        <u>this video</u> to see the platform in action.
+        These are the instructions for using TabPert. You should watch the
+        <a href="https://www.youtube.com/watch?v=sbCH_zD53Kg">demonstration video</a> to see the platform in action.
       </p>
 
       <p>
         When you launch TabPert in your browser and open a particular Table for
-        which you wish to generate counterfactual data you will be presented
+        which you wish to generate counterfactual data, you will be presented
         with 3 tables (Table A, Table B, Table C) whose entries are created by
-        shuffling data from similar tables.
+        shuffling data from similar tables during the automatic stage.
       </p>
 
       <p><img src="figures/Image_0.png" /></p>
