@@ -246,3 +246,15 @@ display: none; }
 .tablinks:hover {
 cursor: pointer;
 }
+
+.resp-img {
+    display: inline-block;
+    width: 50%; // Show 4 images in a row normally
+    height: auto;
+}
+
+@media (max-width: 600px) {
+  .resp-img {
+    width: 100%; // Override width to show only one image in a row on smaller screens
+  }
+}

@@ -88,8 +88,52 @@
        <p>In the <b>manual perturbation stage</b>, annotators correct any logical inconsistencies introduced in the table during the automatic stage, and perturb hypotheses. TabPert automatically logs the kinds of changes done to the table. For the hypotheses, the annotator must manually specify the <b>relevant rows</b> (sections in the table necessary to answer a hypothesis) as well as the <b>strategy</b> used to change each hypothesis. For more information about this stage, click <a onclick="switchTab(event, 'Instructions')" class="tablinks">here</a>.</p>
        
        
-       
-      
+       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h2>
+       <p>Our team used TabPert to creat a counterfactual dataset from the InfoTabS dataset, consisting of 47 tables with 423 hypotheses. We sorted the hypotheses according to the perturbation strategy marked by the annotators and ran the InfoTabS RoBERTa<sub>Large</sub> model on them. The results are shown in the figures below. Note especially the significant performance drop on the counterfactual data in the first three strategies—these were the methods where annotators flipped the label of the hypothesis. So, collecting all that metadata has helped us detect significant hypothesis bias in the model!</p>
+<p><img class="resp-img" src="figures/hypo_pert_stats1.jpg" /><img class="resp-img" src="figures/hypo_pert_stats2.jpg" /></p>
+<p>Now, as another example, let's look at how the model performs when given only partial premises in the table below. First, note that when shown just the hypotheses without any premise, the model's performance is closer to majority-label baselines on the counterfactual dataset than on the original dataset. This confirms a reduction in hypothesis bias in the new dataset. Next, when shown only the relevant rows while answering a hypothesis, the model's performance falls on the original dataset, indicating that it utilises irrelevant rows as artefacts. However, in the same situation, the performance improves on the counterfactual dataset!</p>
+<div>
+				<table  style="margin-left:15%;
+					margin-right:15%;
+					caption-side:bottom;">
+					<thead>
+						<tr>
+							<th>Model Type</th>
+							<th>Original</th>
+							<th>Counterfactual</th>
+						</tr>
+					</thead>
+					<tbody align="center">
+						<tr>
+							<td>Majority</td>
+							<td>33.33</td>
+							<td>33.33</td>
+						</tr>
+						<tr>
+							<td>Hypothesis Only</td>
+							<td>64.32</td>
+							<td>44.85</td>
+						</tr>
+						<tr>
+							<td>All Rows</td>
+							<td>78.91</td>
+							<td>61.26</td>
+						</tr>
+						<tr>
+							<td>Relevant Rows</td>
+							<td>74.11</td>
+							<td>65.85</td>
+						</tr>
+						<tr>
+							<td>Human</td>
+							<td>84.8</td>
+							<td>85.8</td>
+						</tr>
+					</tbody>
+					<caption>Performance (accuracy %) of the InfoTabS RoBERTa<sub>Large</sub> model on original and counterfactual annotated data.</caption>
+				</table>
+			</div>
+<p>So, TabPert has both, helped in the creation of an <b>effective</b> adversarial dataset, and helped <b>identify model weaknesses</b>!</p>
       
 
       
