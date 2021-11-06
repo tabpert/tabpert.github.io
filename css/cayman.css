@@ -239,3 +239,10 @@ a {
 
 .site-footer-credits {
   color: #819198; }
+  
+.tab {
+display: none; }
+
+.tablinks:hover {
+cursor: pointer;
+}
