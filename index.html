@@ -16,23 +16,23 @@
   </head>
   <body>
     <section class="page-header">
-      <h1>TabPert</h1>
+      <h1 style='font-size: 50px; color: #a12323'>TabPert</h1>
       <a onclick="switchTab(event, 'Home')"} class="btn tablinks">Home</a>
       <a href="https://aclanthology.org/2021.emnlp-demo.39.pdf" class="btn">Paper</a>
       <a href="https://github.com/utahnlp/tabpert/" class="btn">Code</a>
       <a onclick="switchTab(event, 'Instructions')" class="btn tablinks"
-        >Annotation Instructions</a
+        >How To Use</a
       >
       <a href="https://www.youtube.com/watch?v=sbCH_zD53Kg" class="btn"
-        >Demonstration (video)</a
+        >Demo</a
       >
       <a
         href="https://vgupta123.github.io/docs/tabpert_ppt.pdf"
         class="btn"
         >Slides</a
       ><br />
-      <a href="youtube.com/watch?v=zjfRk8--jEY" class="btn"
-        >Presentation (video)</a
+      <a href="https://youtube.com/watch?v=zjfRk8--jEY" class="btn"
+        >Presentation</a
       >
     </section>
     <section id="Home" class="main-content tab" style="display: block">
@@ -51,7 +51,7 @@
         To truly grasp reasoning ability, a Natural Language Inference model
         should be evaluated on counterfactual data. TabPert facilitates this by
         assisting in the generation of such counterfactual data for assessing
-        model tabular rea- soning issues. TabPert allows a user to update a
+        model tabular reasoning issues. TabPert allows a user to update a
         table, change its associated hypotheses, change their labels, and
         highlight rows that are important for hypothesis classification. TabPert
         also captures information about the techniques used to automatically
@@ -67,19 +67,19 @@
       <p></p>
       
        <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Right Inference ≠ Right Reasoning </h2>
-       Existing NLI models tend to exploit annotation artefacts, pre-trained knowledge, and hypothesis biases in data to answer a premise. Therefore, to test their performance effectively, we must test them on <b>adversarial data</b>, on which their performance significantly reduces. However, perturbing existing tabular datasets to create counterfactual data is difficult and inefficient without specialised tools. This is where TabPert comes in!
+       <p>Existing NLI models tend to exploit annotation artefacts, pre-trained knowledge, and hypothesis biases in data to answer a premise. Therefore, to test their performance effectively, we must test them on <b>adversarial data</b>, on which their performance significantly reduces. However, perturbing existing tabular datasets to create counterfactual data is difficult and inefficient without specialised tools. This is where TabPert comes in!</p>
        
        <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Utility of TabPert</h2>
-       TabPert is built specifically to allow annotators to effectively and efficiently perturb tabular data and hypotheses. 
+       <p>TabPert is built specifically to allow annotators to effectively and efficiently perturb tabular data and hypotheses. 
        <ul>
        	<li>TabPert <b>streamlines</b> the process of creating adversarial data</li>
-       	<li>TabPert logs data (called <b>metadata</b>) about the kinds of changes done to the dataset at each step of perturbation. This data can then be used to <b>analyse</b> models and <b>pinpoint their weaknesses</b></li>
+       	<li  style="text-align: justify">TabPert logs data (called <b>metadata</b>) about the kinds of changes done to the dataset at each step of perturbation. This data can then be used to <b>analyse</b> models and <b>pinpoint their weaknesses</b></li>
        	<li>TabPert <b>automates</b> part of the perturbation process, making it easier for annotators to work while also reducing annotator bias</li>
        	<li>TabPert can be <b>customised</b> to any tabular perturbation task</li>
-       </ul>
+       </ul></p>
        
        <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Table</h2>
-			<p style="text-align: justify; display:inline;">For a case study of TabPert, we use the <a href="https://infotabs.github.io">InfoTabS dataset</a>. Below is an inference example from InfoTabS. On the right is a premise and on the left are some of its hypotheses. Here, colors <p style='color:green;display:inline;'>'green'</p>, <p style='color:darkgray;display:inline;'>'gray'</p>, and <p style='color:red;display:inline;'>'red'</p> represent true (i.e., entailment), maybe true (i.e., neutral) and false (i.e., contradiction) statements, respectively.</p>
+			<p style="text-align: justify;">For a case study of TabPert, we use the <a href="https://infotabs.github.io">InfoTabS dataset</a>. Below is an inference example from InfoTabS. On the right is a premise and on the left are some of its hypotheses. Here, colors <span style='color:green;'>'green'</span>, <span style='color:darkgray;'>'gray'</span>, and <span style='color:red;'>'red'</span> represent true (i.e., entailment), maybe true (i.e., neutral) and false (i.e., contradiction) statements, respectively.</p>
 			<p style="margin-left:10%; margin-right:10%;"><img src="figures/example.jpeg" style="max-width:95%;"></p>
        
        <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it Work?</h2>
@@ -92,7 +92,9 @@
        <p>Our team used TabPert to creat a counterfactual dataset from the InfoTabS dataset, consisting of 47 tables with 423 hypotheses. We sorted the hypotheses according to the perturbation strategy marked by the annotators and ran the InfoTabS RoBERTa<sub>Large</sub> model on them. The results are shown in the figures below. Note especially the significant performance drop on the counterfactual data in the first three strategies—these were the methods where annotators flipped the label of the hypothesis. So, collecting all that metadata has helped us detect significant hypothesis bias in the model!</p>
 <p><img class="resp-img" src="figures/hypo_pert_stats1.jpg" /><img class="resp-img" src="figures/hypo_pert_stats2.jpg" /></p>
 <p>Now, as another example, let's look at how the model performs when given only partial premises in the table below. First, note that when shown just the hypotheses without any premise, the model's performance is closer to majority-label baselines on the counterfactual dataset than on the original dataset. This confirms a reduction in hypothesis bias in the new dataset. Next, when shown only the relevant rows while answering a hypothesis, the model's performance falls on the original dataset, indicating that it utilises irrelevant rows as artefacts. However, in the same situation, the performance improves on the counterfactual dataset!</p>
+
 <div>
+<center>
 				<table  style="margin-left:15%;
 					margin-right:15%;
 					caption-side:bottom;">
@@ -132,7 +134,7 @@
 					</tbody>
 					<caption>Performance (accuracy %) of the InfoTabS RoBERTa<sub>Large</sub> model on original and counterfactual annotated data.</caption>
 				</table>
-			</div>
+			</center></div>
 <p>So, TabPert has both, helped in the creation of an <b>effective</b> adversarial dataset, and helped <b>identify model weaknesses</b>!</p>
       
 
